@@ -6,14 +6,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20), unique=True, nullable=False)
     last_name = db.Column(db.String(20), unique=True, nullable=False)
-    full_name = first_name + " " + last_name
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Article', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.full_name}', '{self.email}', '{self.image_file}')"
+        return f"User('{self.first_name}', '{self.email}', '{self.image_file}')"
 
 
 class Article(db.Model):
