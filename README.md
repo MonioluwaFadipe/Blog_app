@@ -34,8 +34,15 @@ $ git clone https://github.com/MonioluwaFadipe/Blog_app
 I'll be hoping to modify this project in the future and add more functionalities to it. If you want to contribute to this project in any way, do well to make a pull request.
 
 
-## 
-I've come this far with the project thanks to amazing resources on the internet and the guidance I've received. Big S/O to Caleb Emelike (the Python instructor at Altschool Africa) for the explanations during classes. 
+## Acknowledgements
+I've come this far with the project thanks to amazing resources on the internet and the guidance I've received. Big S/O to Caleb Emelike (the Python instructor at Altschool Africa) for the explanations during classes.
+Here are some of the resources that helped me finish this project:
+- [Miguel Grinberg's Flask Web Development, 2nd Edition](https://www.oreilly.com/library/view/flask-web-development/9781491991725/)
+- [Corey Schafer Flask Tutorials series](https://youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
+- [Stack Overflow](https://stackoverflow.com/)
+- Altschool </Python> Dev WhatsApp Group
+- [Fearless Energy Drink](https://www.ritefoodsltd.com/fearless-energy-drinks/)
+- IKEDC
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
