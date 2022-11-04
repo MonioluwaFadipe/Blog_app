@@ -2,7 +2,7 @@ from flask import render_template, url_for, flash, redirect
 from app import app, db, bcrypt
 from app.forms import LoginForm, RegistrationForm
 from app.models import User, Article
-from flask_login import login_user, current_user
+from flask_login import login_user, logout_user, current_user
 
 
 posts = [
@@ -57,4 +57,9 @@ def register():
         flash("Your account has been successfully created", 'success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('home'))
 
