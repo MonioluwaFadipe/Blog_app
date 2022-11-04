@@ -25,8 +25,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="/about">About</a>
+                <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Home</a>
+                <a class="nav-item nav-link" href="{{ url_for('main.about') }}">About</a>
               </div>
               <!-- Navbar Right Side -->
               <div class="navbar-nav ml-auto">
