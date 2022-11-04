@@ -1,29 +1,17 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, abort
 from app import app, db, bcrypt
-from app.forms import LoginForm, RegistrationForm, UpdateAccountForm
+import secrets
+import os
+from PIL import Image
+from app.forms import LoginForm, RegistrationForm, UpdateAccountForm, PostForm
 from app.models import User, Article
 from flask_login import login_user, logout_user, current_user, login_required
 
 
-posts = [
-    {
-        'author': 'Fadipe Daniel',
-        'title': 'First Blog Post',
-        'content': 'First Blog content',
-        'date_posted': 'April 21, 2018'
-    },
-
-    {
-        'author': 'Oni Temidayo',
-        'title': 'Second Blog Post',
-        'content': 'Second Blog content',
-        'date_posted': 'April 4, 2019'
-    }
-]
-
 @app.route("/")
 def home():
-    return render_template('home.html', posts = posts)
+    posts = Article.query.all()
+    return render_template('home.html', posts=posts)
 
 @app.route("/about")
 def about():
@@ -64,11 +52,30 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
+#save profile picture
+def save_picture(form_picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(app.root_path, 'static/profile_pics', picture_fn)
+
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    
+    return picture_fn
+
+
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
     form = UpdateAccountForm()
     if form.validate_on_submit():
+        #update user profile picture
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
         current_user.email = form.email.data
@@ -83,3 +90,28 @@ def account():
     return render_template('account.html', title='Account', image_file=image_file, form=form)
 
 
+@app.route("/post/new", methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Article(title=form.title.data, content=form.content.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post has been created', 'success')
+        return redirect(url_for('home'))
+    return render_template('create_post.html', title='New Post', form=form)
+
+@app.route("/post/<int:post_id>")
+def post(post_id):
+    post = Article.query.get_or_404(post_id)
+    return render_template('post.html', title=post.title, post=post)
+
+@app.route("/post/<int:post_id>/update")
+@login_required
+def update_post(post_id):
+    post = Article.query.get_or_404(post_id)
+    if post.authot != current_user:
+        abort(403)
+    form = PostForm()
+    return render_template('create_post.html', title='Update Post', form=form)
