@@ -6,9 +6,16 @@
         <div class="article-metadata">
             <a class="mr-2" href="#">{{ post.author.first_name }} {{ post.author.last_name }}</a>
             <small class="text-muted">{{ post.date_posted.strftime("%d-%m-%Y %H:%M") }}</small>
+            {% if post.author == current_user %}
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('edit_post', post_id=post.id) }}">Edit</a>
+                    <a type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal" href="{{ url_for('delete_post', post_id=post.id) }}">Delete</a>
+                </div>
+            {% endif %}
         </div>
         <h2 class="article-title"> {{ post.title }} </h2>
         <p class="article-content">{{ post.content }}</p>
         </div>
     </article>
+    
 {% endblock content %}
