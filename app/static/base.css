@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #474e5d;
     color: #333333;
     margin-top: 5rem;
   }
@@ -8,8 +8,15 @@ body {
     color: #444444;
   }
   
+  .about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #edeef1;
+    color: rgb(5, 5, 5);
+  }
+
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #6516e4;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -33,11 +40,11 @@ body {
   }
   
   .article-title {
-    color: #444444;
+    color: #181313;
   }
   
   a.article-title:hover {
-    color: #428bca;
+    color: #1463f7;
     text-decoration: none;
   }
   
