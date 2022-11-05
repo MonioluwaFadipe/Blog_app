@@ -45,7 +45,7 @@ Here are some of the resources that helped me finish this project:
 - [Miguel Grinberg's Flask Web Development, 2nd Edition](https://www.oreilly.com/library/view/flask-web-development/9781491991725/)
 - [Corey Schafer Flask Tutorials series](https://youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
 - [Stack Overflow](https://stackoverflow.com/)
-- Altschool </Python> Dev WhatsApp Group
+- Altschool Python Dev WhatsApp Group
 - [Fearless Energy Drink](https://www.ritefoodsltd.com/fearless-energy-drinks/)
 - IKEDC
 
