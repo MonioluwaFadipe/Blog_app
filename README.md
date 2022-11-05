@@ -28,6 +28,11 @@ To clone this project;
 $ git clone https://github.com/MonioluwaFadipe/Blog_app
 
 ```
+To run this project from your end, run;
+```bash
+python run.py
+
+```
 
 
 ## Contributing
