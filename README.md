@@ -4,9 +4,12 @@ Blog_app is a project I created as the examination for my second semester at [Al
 
 The application allows anyone to read blog posts made by different users. You can also register as a new user to Create, Read, Update, and Delete your posts. The authentication system setup prevents non-users from doing all these. 
 
-## Required Packages
+## Requirements
 
-I have stored all the packages I used in a requirements.txt file. You can install them on your machine using Python's package manager.
+
+You will need to have Python installed to be able to run this application.
+
+I have stored all the packages I used in a requirements.txt file. You can install them using Python's package manager - pip.
 
 ```bash
 pip install -r requirements.txt
