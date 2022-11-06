@@ -22,7 +22,7 @@ python -m venv <virtual-environment-name>
 
 
 ## Usage
-To clone this project;
+You can clone this project;
 
 ```python
 $ git clone https://github.com/MonioluwaFadipe/Blog_app
@@ -40,8 +40,8 @@ I'll be hoping to modify this project in the future and add more functionalities
 
 
 ## Acknowledgements
-I've come this far with the project thanks to amazing resources on the internet and the guidance I've received. Big S/O to Caleb Emelike (the Python instructor at Altschool Africa) for the explanations during classes.
-Here are some of the resources that helped me finish this project:
+I've come this far with the project thanks to amazing resources on the internet and the guidance I've received. A big thank you to Caleb Emelike (the Python instructor at Altschool Africa) for the explanations during classes.
+Special S/O to:
 - [Miguel Grinberg's Flask Web Development, 2nd Edition](https://www.oreilly.com/library/view/flask-web-development/9781491991725/)
 - [Corey Schafer Flask Tutorials series](https://youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH)
 - [Stack Overflow](https://stackoverflow.com/)
